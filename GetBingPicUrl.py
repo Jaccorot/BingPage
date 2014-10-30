@@ -1,8 +1,10 @@
 #!/usr/local/bin/python
 #coding=utf-8
 
-import urllib2   
+import urllib2  
+import urllib 
 import re  
+import time
 
  
 def GetBingPicUrl():  
@@ -14,7 +16,16 @@ def GetBingPicUrl():
     myPage = myResponse.read()   
     unicodePage = myPage.decode("utf-8") 
     myItem = re.search('(http:\/\/s\.cn\.bing\.net.*?1366x768\.jpg)',unicodePage,re.S)
-    print myItem.group(0)
+    print 'file url =' + myItem.group(0)
     return myItem.group(0)
+
+def DownloadUrl(url):
+    CurTime = time.strftime('%Y%m%d',time.localtime(time.time()))
+    FileName = str(CurTime)+'.jpg'
+    print 'download file name :' + FileName
+    if url:
+        urllib.urlretrieve(url,FileName)
+
+
 if __name__ == "__main__":
     GetBingPicUrl()
