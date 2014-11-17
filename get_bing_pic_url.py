@@ -7,7 +7,10 @@ import re
 import time
 
  
-def get_bing_pic_url():  
+def get_bing_pic_url(): 
+    """
+    通过正则表达式获取bing图片网址
+    """ 
     myUrl = "http://cn.bing.com"  
     user_agent = 'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)' 
     headers = { 'User-Agent' : user_agent } 
@@ -20,6 +23,9 @@ def get_bing_pic_url():
     return myItem.group(0)
 
 def download_url(url):
+    """
+    下载至本地
+    """
     curtime = time.strftime('%Y%m%d',time.localtime(time.time()))
     filename = str(curtime)+'.jpg'
     print 'download file name :' + filename
