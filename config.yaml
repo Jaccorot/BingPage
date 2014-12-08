@@ -1,0 +1,8 @@
+name: bingimages
+version: 1
+
+cron:
+- description: test
+  url: /test
+  timezone: Beijing
+  schedule: "5 0 * * *"
