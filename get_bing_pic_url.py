@@ -18,7 +18,7 @@ def get_bing_pic_url():
     myResponse = urllib2.urlopen(req)
     myPage = myResponse.read()   
     unicodePage = myPage.decode("utf-8") 
-    myItem = re.search('(http:\/\/s\.cn\.bing\.net.*?1366x768\.jpg)',unicodePage,re.S)
+    myItem = re.search('(http:\/\/s\.cn\.bing\.net.*?\d{1,4}x\d{1,4}\.jpg)',unicodePage,re.S)
     print 'file url =' + myItem.group(0)
     return myItem.group(0)
 
